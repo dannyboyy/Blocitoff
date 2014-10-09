@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'faker'
+
+# Create items for the to-do-list
+20.times do
+ Item.create!(
+  body:         Faker::Lorem.sentence(1),
+  days_left:    Faker::Number.number(1)
+ )
+end
+
+items = Item.all
+
+puts "Seed finished"
+puts "#{Item.count} itemss created"
