@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.paginate(page: params[:page], per_page: 10)
   end
 
   def show
@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = current_user.items.build(item_params)
     if @item.save
       flash[:notice] = 'Your new to-do was saved successfully.'
       redirect_to @item

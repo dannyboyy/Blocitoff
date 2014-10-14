@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 gem 'faker'
+gem 'will_paginate', '~> 3.0.5'
 
 group :development do
   gem 'spring'
