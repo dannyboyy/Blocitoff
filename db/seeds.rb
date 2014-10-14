@@ -24,7 +24,7 @@ users = User.all
 20.times do
  Item.create!(
   body:         Faker::Lorem.sentence(1),
-  days_left:    Faker::Number.number(1)
+  complete:     false
  )
 end
 
