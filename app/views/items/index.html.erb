@@ -12,7 +12,7 @@
     <% @items.each do |item| %>
     <tr>
       <td class="col-md-4"><%= link_to item.body, item %></td>
-      <td class="col-md-2"><%= 6 - (Time.now.to_date - item.created_at.to_date).to_i %></td>
+      <td class="col-md-2"><%= 7 - (Time.now.to_date - item.created_at.to_date).to_i %></td>
       <td class="col-md-2">
         <% if item.completed? %>
           <%= item.completed_at %>
