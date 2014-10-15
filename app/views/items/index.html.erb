@@ -1,16 +1,19 @@
 <h1>My To-do List</h1>
 
+
+
 <div class="media">
  <div class="media-body">
    <h4 class="media-heading">
     <% @items.each do |item| %>
-      <div class="col-md-6"><%= item.body %></div>
+      <div class="col-md-6"><%= link_to item.body, item %></div>
       <div class="col-md-2"><%= time_ago_in_words(item.created_at) %></div>
-      <div class="col-md-2"><%= item.complete %></div>
     <% end %>
    </h4>
  </div>
 </div>
+
+<%= link_to "Add a new todo", new_item_path, class: 'btn btn-success' %>
 
 </br>
 

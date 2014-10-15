@@ -13,9 +13,6 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
-  def edit
-  end
-
   def create
     @item = current_user.items.build(item_params)
     if @item.save
@@ -27,10 +24,25 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update_attributes(params.require(:item).permit(:body, :complete))
+      flash[:notice] = "Post was updated."
+      redirect_to @item
+    else
+      flash[:error] = "There was an error saving the post. Please try again."
+      render :edit
+    end
+  end
+
   private
 
   def item_params
-    params.require(:item).permit(:body)
+    params.require(:item).permit(:body, :complete)
   end
 
 end

@@ -1,11 +1,12 @@
-</br>
-
-
+<div class="col-md-8">
  <%= form_for @item do |f| %>
- 
-   <%= f.label :body %>
-   <%= f.text_area :body %>
- 
-   <%= f.submit "Save" %>
+   <div class="form-group">
+     <%= f.label "Enter new todo" %>
+     <%= f.text_area :body, rows: 1, class: 'form-control', placeholder: "Enter new todo" %>
+   </div>
+   <div class="form-group">
+     <%= f.submit "Save", class: 'btn btn-success' %>
+   </div>
  <% end %>
+</div>
 
