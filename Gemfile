@@ -11,6 +11,7 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 gem 'faker'
 gem 'will_paginate', '~> 3.0.5'
+gem 'whenever'
 
 group :development do
   gem 'spring'

@@ -1,11 +1,25 @@
 <h1>My To-do List</h1>
 
 <table class="todo_items">
+    <thead>
+      <tr>
+        <td class="col-md-4"><h4>Description</h4></td>
+        <td class="col-md-2"><h4>Days left</h4></td>
+        <td class="col-md-2"><h4>Complete</h4></td>
+      </tr>
+    </thead>
+
     <% @items.each do |item| %>
     <tr>
       <td class="col-md-4"><%= link_to item.body, item %></td>
       <td class="col-md-2"><%= time_ago_in_words(item.created_at) %></td>
-      <td class="col-md-2"><%= link_to "Mark Complete", complete_item_path(item), method: :patch %></td>
+      <td class="col-md-2">
+        <% if item.completed? %>
+          <%= item.completed_at %>
+        <% else %>
+          <%= link_to "Mark Complete", complete_item_path(item), method: :patch %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
 </table>

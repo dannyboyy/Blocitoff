@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
     @item = current_user.items.build(item_params)
     if @item.save
       flash[:notice] = 'Your new to-do was saved successfully.'
-      redirect_to @item
+      redirect_to items_path
     else
       flash[:error] = 'Something went wrong. Your to-do was not saved.'
       render :new
